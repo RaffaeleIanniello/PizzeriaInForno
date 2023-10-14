@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PizzeriaInForno.Models.prodotti>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Riepilogo Prodotti</h2>
+<a href="@Url.Action("Create")" class="btn btn-warning">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome Prodotto</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Tempo di Consegna</th>
+            <th scope="col">Ingredienti</th>
+            <th scope="col">Modifica</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PizzeriaInForno.Models.prodotti p in Model)
+        {
+        <tr>
+            <td>@p.nomeProdotto</td>
+            <td>@p.prezzoProdotto</td>
+            <td>@p.tempoConsegna</td>
+            <td>@p.ingredienti</td>
+            <td> <a href="@Url.Action("Edit", new { id = p.idProdotti })" class="btn btn-warning">Edit</a> </td>
+            <td> <a href="@Url.Action("Delete", new { id = p.idProdotti })" class="btn btn-danger">Elimina</a> </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

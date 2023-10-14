@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<PizzeriaInForno.Models.ordini>
+@{
+    ViewBag.Title = "ListaOrdini";
+}
+
+<h2>Lista degli Ordini</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ordine</th>
+            <th scope="col">Data Ordine</th>
+            <th scope="col">Indirizzo di Consegna</th>
+            <th scope="col">Note</th>
+            <th scope="col">Evaso</th>
+            <th scope="col">Utente</th>
+            <th scope="col">Modifica</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PizzeriaInForno.Models.ordini o in Model)
+        {
+            <tr>
+                <td>@o.idOrdini</td>
+                <td>@o.dataOrdine</td>
+                <td>@o.indirizzoConsegna</td>
+                <td>@o.notaOrdine</td>
+                <td>@o.evaso</td>
+                <td>@o.fkUtenti</td>
+                <td> <a href="@Url.Action("Edit", new { id = o.idOrdini })" class="btn btn-warning">Edit</a> </td>
+                <td> <a href="@Url.Action("Delete", new { id = o.idOrdini })" class="btn btn-danger">Elimina</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>

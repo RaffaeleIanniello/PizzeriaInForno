@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PizzeriaInForno.Models.prodotti>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="row mt-3">
+
+        @foreach (PizzeriaInForno.Models.prodotti p in Model)
+        {
+
+            <div class="col col-3 mt-3">
+                <div class="card" style="height: 450px;">
+                    <img src="~/Content/img/@p.fotoProdotto" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@p.nomeProdotto</h5>
+                        <p class="card-text">@p.ingredienti.</p>
+                        <p class="card-text">Prezzo: @string.Format("{0:C}", p.prezzoProdotto)</p>
+                        <p class="card-text">Tempo di Consegna: @p.tempoConsegna min.</p>
+                        <a href="#" class="btn btn-warning border border-5">Aggiungi</a>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+</div>
